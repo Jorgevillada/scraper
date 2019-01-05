@@ -1,0 +1,23 @@
+version: '3.4'
+
+services:
+  craw4-scraper:
+    container_name: craw4-scraper
+    labels:
+      - "traefik.backend=craw4-headless"
+      - "traefik.frontend.rule=PathPrefixStrip: /craw4-headless"
+    user: root # avoids ton of volume mounting headaches in dev mode.
+    build: 
+      context: .
+      target: builder
+    volumes:
+      - .:/go/src/app
+    ports:
+      - 3737
+      # - 3738 # health check endpoint
+    environment:
+      - APP_ENV=development
+    command: scripts/run.sh
+
+# @see: https://github.com/pilu/fresh
+# @alt @see: https://github.com/codegangsta/gin
