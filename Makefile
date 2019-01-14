@@ -1,6 +1,6 @@
 default: start
 project:=craw4-scrapper
-service:=craw4-scrapper
+service:=scrapper
 COMMIT_HASH = $(shell git rev-parse --verify HEAD)
 
 .PHONY: start

@@ -5,7 +5,7 @@ import (
 
 	log "github.com/sirupsen/logrus"
 
-	"app/server"
+	"craw4-scraper/server"
 )
 
 func main() {
